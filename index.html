@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Frontend Mentor | Multi-step form</title>
+
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div id="main">
+      <div id="sidebar-mob">
+        <div class="blank"></div>
+        <div id="steps-container">
+          <p class="step-number" id="step-number-1">1</p>
+          <p class="step-number" id="step-number-2">2</p>
+          <p class="step-number" id="step-number-3">3</p>
+          <p class="step-number" id="step-number-4">4</p>
+        </div>
+        <div class="blank"></div>
+      </div>
+      <div id="sidebar-pc">
+        <div class="step-content">
+          <p class="step-number" id="step-number-1-pc">1</p>
+          <div class="step-description">
+            <p class="steps">Step 1</p>
+            <p class="step-title">YOUR INFO</p>
+          </div>
+        </div>
+        <div class="step-content">
+          <p class="step-number" id="step-number-2-pc">2</p>
+          <div class="step-description">
+            <p class="steps">Step 2</p>
+            <p class="step-title">SELECT PLAN</p>
+          </div>
+        </div>
+        <div class="step-content">
+          <p class="step-number" id="step-number-3-pc">3</p>
+          <div class="step-description">
+            <p class="steps">Step 3</p>
+            <p class="step-title">ADD-ONS</p>
+          </div>
+        </div>
+        <div class="step-content">
+          <p class="step-number" id="step-number-4-pc">4</p>
+          <div class="step-description">
+            <p class="steps">Step 4</p>
+            <p class="step-title">SUMMARY</p>
+          </div>
+        </div>
+      </div>
+      <div class="interaction" id="interaction-step1">
+        <div class="info" id="info-step1">
+          <h1 class="description title" >Personal info</h1>
+          <p class="description descriptor"> Please provide your name, email address, and phone number.</p>
+          <form class="Personal-info" id="text">
+            <div class="info-type">
+              <label for="name">Name</label>
+              <div class="errors">
+                <span id="error-name-valid" class="error">Valid name required</span>
+                <span id="error-name" class="error">This field is required</span>
+              </div>
+            </div>
+            <input class="input" id="name" type="text" placeholder="e.g. Stephen King" />
+         </form>
+          <form class="Personal-info">
+            <div class="info-type">
+              <label for="email">Email Address</label>
+              <div class="errors">
+                <span id="error-email-valid" class="error">Valid email required </span>
+                <span id="error-email" class="error"> This field is required</span>
+              </div>
+            </div>
+            <input class="input" id="email" type="email" placeholder="e.g. stephenking@lorem.com" />
+          </form>
+          <form class="Personal-info">
+            <div class="info-type">
+              <label for="phone">Phone Number</label>
+              <div class="errors">
+                <span id="error-phone-valid" class="error">Valid number required </span>
+                <span id="error-phone" class="error">This field is required</span>
+              </div>
+            </div>
+            <input class="input" id="phone" type="text" placeholder="e.g. + 1 234 567 890" />
+          </form>
+        </div>
+        <div class="bottom">
+          <button class="footer-button" id="blank">Go back</button>
+          <button class="footer-button" id="next-step" onclick="step2()">Next Step</button>
+        </div>
+      </div>
+      <div class="interaction" id="interaction-step2">
+        <div class="info" id="info-step2">
+          <h1 class="description title">Select your plan</h1>
+          <p class="description descriptor">You have the options for monthly and yearly billing.</p>
+          <div id="plans-select">
+            <div id="plans-container">
+              <button id="plans-button-arcade" class="plans-button"  onclick="arcade()">
+                <div class="plans" id="arcade-m">
+                  <img src="assets/images/icon-arcade.svg" id="arcade-img" class="button-img">
+                  <div class="plan-info">
+                    <p class="plan-name">Arcade</p>
+                    <p class="plan-cost">$9/mo</p>
+                  </div>
+                </div>
+              </button>
+              <button id="plans-button-advanced" class="plans-button" onclick="advanced()">
+                <div class="plans" id="advanced-m">
+                  <img src="assets/images/icon-advanced.svg" id="arcade-img" class="button-img">
+                  <div class="plan-info">
+                    <p class="plan-name">Advanced</p>
+                    <p class="plan-cost">$12/mo</p>
+                  </div>
+                </div>
+              </button>
+              <button id="plans-button-pro" class="plans-button" onclick="pro()">
+                <div class="plans" id="pro-m">
+                  <img src="assets/images/icon-pro.svg" id="arcade-img" class="button-img">
+                  <div class="plan-info">
+                    <p class="plan-name">Pro</p>
+                    <p class="plan-cost">$15/mo</p>
+                  </div>
+                </div>
+              </button>
+              <button id="plans-button-arcade-y" class="plans-button-y" onclick="arcadeY()">
+                <div class="plans" id="arcade-y">
+                  <img src="assets/images/icon-arcade.svg" id="arcade-img" class="button-img">
+                  <div class="plan-info">
+                    <p class="plan-name">Arcade</p>
+                    <p class="plan-cost">$90/yr</p>
+                    <p class="2-m-free">2 months free</p>
+                  </div>
+                </div>
+              </button>
+              <button id="plans-button-advanced-y" class="plans-button-y" onclick="advancedY()">
+                <div class="plans" id="advanced-y">
+                  <img src="assets/images/icon-advanced.svg" id="arcade-img" class="button-img">
+                  <div class="plan-info">
+                    <p class="plan-name">Advanced</p>
+                    <p class="plan-cost">$120/yr</p>
+                    <p class="2-m-free">2 months free</p>
+                  </div>
+                </div>
+              </button>
+              <button id="plans-button-pro-y" class="plans-button-y" onclick="proY()">
+                <div class="plans" id="pro-y">
+                  <img src="assets/images/icon-pro.svg" id="arcade-img" class="button-img">
+                  <div class="plan-info">
+                    <p class="plan-name">Pro</p>
+                    <p class="plan-cost">$150/yr</p>
+                    <p class="free">2 months free</p>
+                  </div>
+                </div>
+              </button>
+            </div>
+            <div id="y-m-toggle">
+              <p id="monthly">Monthly</p>
+              <div id="switch-container">
+                <input type="checkbox" id="switch" onclick="check()">
+              </div>
+              <p id="yearly">Yearly</p>
+            </div>
+          </div>
+        </div>
+        <div class="bottom">
+          <button class="footer-button" id="go-back" onclick="step1B()">Go back</button>
+          <button class="footer-button" id="next-step" onclick="step3()">Next Step</button>
+        </div>
+      </div>
+      <div class="interaction" id="interaction-step3">
+        <div class="info" id="info-step3">
+          <h1 class="description title">Add-ons</h1>
+          <p class="description descriptor">Add-ons help enhance your gaming experience.</p>
+            <div id="plans-select">
+            <button class="add-ons-button" id="add-ons-button-os" onclick="osCheck()">
+                <div class="add-ons">
+                    <div class="check-image">
+                    <img src="assets/images/icon-checkmark.svg">
+                    </div>
+                    <div class="add-ons-info">
+                        <p class="add-on-name">Online services</p>
+                        <p class="add-on-info">Access to multiple games</p>
+                    </div>
+                    <p class="add-on-cost">+$1/mo</p>
+                </div>
+            </button>
+            <button class="add-ons-button selected" id="add-ons-button-os-checked" onclick="osUncheck()">
+              <div class="add-ons">
+                  <div class="check-image checked">
+                  <img src="assets/images/icon-checkmark.svg">
+                  </div>
+                  <div class="add-ons-info">
+                      <p class="add-on-name">Online services</p>
+                      <p class="add-on-info">Access to multiple games</p>
+                  </div>
+                  <p class="add-on-cost">+$1/mo</p>
+              </div>
+            </button>
+            <button class="add-ons-button" id="add-ons-button-ls"  onclick="lsCheck()">
+                <div class="add-ons">
+                    <div class="check-image">
+                    <img src="assets/images/icon-checkmark.svg">
+                    </div>
+                    <div class="add-ons-info">
+                        <p class="add-on-name">Larger storage</p>
+                        <p class="add-on-info">Extra 1TB of cloud save</p>
+                    </div>
+                    <p class="add-on-cost">+$2/mo</p>
+                </div>
+            </button>
+            <button class="add-ons-button selected" id="add-ons-button-ls-checked"  onclick="lsUncheck()">
+              <div class="add-ons">
+                  <div class="check-image checked">
+                  <img src="assets/images/icon-checkmark.svg">
+                  </div>
+                  <div class="add-ons-info">
+                      <p class="add-on-name">Larger storage</p>
+                      <p class="add-on-info">Extra 1TB of cloud save</p>
+                  </div>
+                  <p class="add-on-cost">+$2/mo</p>
+              </div>
+            </button>
+            <button class="add-ons-button" id="add-ons-button-cp"  onclick="cpCheck()">
+                <div class="add-ons">
+                    <div class="check-image">
+                    <img src="assets/images/icon-checkmark.svg">
+                    </div>
+                    <div class="add-ons-info">
+                        <p class="add-on-name">Customizable profile</p>
+                        <p class="add-on-info">Custom theme on your profile</p>
+                    </div>
+                    <p class="add-on-cost">+$2/mo</p>
+                </div>
+            </button>
+            <button class="add-ons-button selected" id="add-ons-button-cp-checked"  onclick="cpUncheck()">
+              <div class="add-ons">
+                  <div class="check-image checked">
+                  <img src="assets/images/icon-checkmark.svg">
+                  </div>
+                  <div class="add-ons-info">
+                      <p class="add-on-name">Customizable profile</p>
+                      <p class="add-on-info">Custom theme on your profile</p>
+                  </div>
+                  <p class="add-on-cost">+$2/mo</p>
+              </div>
+            </button>
+            <button class="add-ons-button-y" id="add-ons-button-os-y"  onclick="osYCheck()">
+                <div class="add-ons">
+                    <div class="check-image">
+                    <img src="assets/images/icon-checkmark.svg">
+                    </div>
+                    <div class="add-ons-info">
+                        <p class="add-on-name">Online services</p>
+                        <p class="add-on-info">Access to multiple games</p>
+                    </div>
+                    <p class="add-on-cost">+$10/yr</p>
+                </div>
+            </button>
+            <button class="add-ons-button-y selected" id="add-ons-button-os-y-checked"  onclick="osYUncheck()">
+              <div class="add-ons">
+                  <div class="check-image checked">
+                  <img src="assets/images/icon-checkmark.svg">
+                  </div>
+                  <div class="add-ons-info">
+                      <p class="add-on-name">Online services</p>
+                      <p class="add-on-info">Access to multiple games</p>
+                  </div>
+                  <p class="add-on-cost">+$10/yr</p>
+              </div>
+            </button>
+            <button class="add-ons-button-y" id="add-ons-button-ls-y" onclick="lsYCheck()">
+                <div class="add-ons">
+                    <div class="check-image">
+                    <img src="assets/images/icon-checkmark.svg">
+                    </div>
+                    <div class="add-ons-info">
+                        <p class="add-on-name">Larger storage</p>
+                        <p class="add-on-info">Extra 1TB of cloud save</p>
+                    </div>
+                    <p class="add-on-cost">+$20/yr</p>
+                </div>
+            </button>
+            <button class="add-ons-button-y selected" id="add-ons-button-ls-y-checked" onclick="lsYUncheck()">
+              <div class="add-ons">
+                  <div class="check-image checked">
+                  <img src="assets/images/icon-checkmark.svg">
+                  </div>
+                  <div class="add-ons-info">
+                      <p class="add-on-name">Larger storage</p>
+                      <p class="add-on-info">Extra 1TB of cloud save</p>
+                  </div>
+                  <p class="add-on-cost">+$20/yr</p>
+              </div>
+            </button>
+            <button class="add-ons-button-y" id="add-ons-button-cp-y" onclick="cpYCheck()">
+                <div class="add-ons">
+                    <div class="check-image">
+                    <img src="assets/images/icon-checkmark.svg">
+                    </div>
+                    <div class="add-ons-info">
+                        <p class="add-on-name">Customizable profile</p>
+                        <p class="add-on-info">Custom theme on your profile</p>
+                    </div>
+                    <p class="add-on-cost">+$20/yr</p>
+                </div>
+            </button>
+            <button class="add-ons-button-y selected" id="add-ons-button-cp-y-checked" onclick="cpYUncheck()">
+              <div class="add-ons">
+                  <div class="check-image checked">
+                  <img src="assets/images/icon-checkmark.svg">
+                  </div>
+                  <div class="add-ons-info">
+                      <p class="add-on-name">Customizable profile</p>
+                      <p class="add-on-info">Custom theme on your profile</p>
+                  </div>
+                  <p class="add-on-cost">+$20/yr</p>
+              </div>
+            </button>
+            </div>
+        </div>
+        <div class="bottom">
+          <button class="footer-button" id="go-back" onclick="step2B()">Go back</button>
+          <button class="footer-button" id="next-step" onclick="step4()">Next Step</button>
+        </div>
+      </div>
+      <div class="interaction" id="interaction-step4">
+        <div class="info" id="info-step4">
+          <h1 class="description title">Finishing up</h1>
+          <p class="description descriptor">Double-check if everything is OK before confirming.</p>
+          <div id="summary">
+            <div id="plan-selected">
+              <div id="view-plan">
+                <p id="the-plan" class="the-plan">Arcade (Monthly)</p>
+                <p id="change" class="summary"> Change</p>
+              </div>
+              <p id="plan-price" class="the-plan">$9/mo</p>
+            </div>
+            <hr>
+            <div id="add-ons-selected">
+              <div id="online-servies" class="add-on-chosen">
+                <p class="summary">Online services</p>
+                <p id="os-cost" class="cost">$1/mo</p>
+              </div>
+              <div id="larger-storage" class="add-on-chosen">
+                <p class="summary">Larger storage</p>
+                <p id="ls-cost" class="cost">$2/mo</p>
+              </div>
+              <div id="customizable-profile" class="add-on-chosen">
+                <p class="summary">Customizable profile</p>
+                <p id="cp-cost" class="cost">$2/mo</p>
+              </div>
+            </div>
+          </div>
+          <div id="total-container">
+            <p id="total" class="summary">Total</p>
+            <p id="total-cost">$13/mo</p>
+          </div>
+        </div>
+        <div class="bottom">
+          <button class="footer-button" id="go-back" onclick="step3B()">Go back</button>
+          <button class="footer-button" id="next-step" onclick="thankYou()">Confirm</button>
+        </div>
+      </div>
+      <div class="interaction" id="thank-you">
+        <div class="info" id="info-thank-you">
+          <img src="assets/images/icon-thank-you.svg" id="thank-you-img">
+          <h1 class="description title" id="title-thank-you">Thank you!</h1>
+          <p class="description descriptor" id="description-thank-you">Thanks for confirming your subscription! We hope you have fun using our platform. if you ever need support, please feel free to contact us at support@loremgaming.com</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>
